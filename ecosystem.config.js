@@ -8,7 +8,7 @@ module.exports = {
     // First application
     {
       name      : 'GITHUB_HOOK',
-      script    : './src/app.js',
+      script    : './src/index.js',
       env: {
         COMMON_VARIABLE: 'true'
       },
