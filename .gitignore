@@ -62,4 +62,4 @@ typings/
 .idea/
 __dist/
 .dist/
-./config/data.js
+config/data.js
