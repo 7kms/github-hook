@@ -1,7 +1,7 @@
 const {spawn,spawnSync} = require('child_process')
 const DATA = require('../../config/data')
 
-const prepareScripts = ['git add .','git stash','git checkout {{branch}}', 'git pull origin {{branch}}']
+const prepareScripts = ['git add .','git stash','git stash clear', 'git checkout {{branch}}', 'git pull origin {{branch}}']
 
 let build = (obj, ref) => {
     let branch = ref.split('/').pop();
