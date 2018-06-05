@@ -36,9 +36,9 @@ let build = (obj, ref) => {
                     item = item.split(' ')
                     let result = spawnSync(item[0],item.slice(1),{cwd: obj.cwd,stdio:'inherit'})
                     if(result.status != 0){
-                        console.log(`${item.jion(' ')} success`)
+                        console.log(`${item.join(' ')} success`)
                     }else{
-                        console.log(`${item.jion(' ')} failed!`)
+                        console.log(`${item.join(' ')} failed!`)
                     }
                 })
             }
