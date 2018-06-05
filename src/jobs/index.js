@@ -19,16 +19,29 @@ let build = (obj, ref) => {
             }
         })
         if(flag){
-            let script = obj.script.split(' ')
-            let task = spawn(script[0],script.slice(1),{cwd: obj.cwd,stdio:'inherit'})
-            task.on('close', (code) => {
-                if(code!=0) flag = false;
-                if(flag){
-                    console.log(`task exited with code ${code}`)
-                }else{
-                    console.log('build failed!')
-                }
-            });
+            if(typeof obj.script == 'string'){
+                let script = obj.script.split(' ')
+                let task = spawn(script[0],script.slice(1),{cwd: obj.cwd,stdio:'inherit'})
+                task.on('close', (code) => {
+                    if(code!=0) flag = false;
+                    if(flag){
+                        console.log(`task exited with code ${code}`)
+                    }else{
+                        console.log('build failed!')
+                    }
+                });
+            }else if(Array.isArray(obj.script)){
+                obj.script.forEach(item=>{
+                    console.log(`running ${item}`)
+                    item = item.split(' ')
+                    let result = spawnSync(item[0],item.slice(1),{cwd: obj.cwd,stdio:'inherit'})
+                    if(result.status != 0){
+                        console.log(`${item.jion(' ')} success`)
+                    }else{
+                        console.log(`${item.jion(' ')} failed!`)
+                    }
+                })
+            }
         }else{
             console.log('build failed!')
         }
