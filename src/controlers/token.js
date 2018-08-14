@@ -1,9 +1,9 @@
 const crypto = require('crypto');
-let debug = require('debug')('router')
+// let debug = require('debug')('router')
 const secret = require('../../config/index').appSecrcet;
 let verify = async (ctx,next)=>{
     let signature = ctx.get('X-Hub-Signature');
-    debug(signature)
+    // debug(signature)
     let body = ctx.request.body
     if(!signature || !body){
         ctx.throw(401)

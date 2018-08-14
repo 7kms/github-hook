@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env DEBUG=github_hook NODE_ENV=development nodemon ./src/index.js"
+    "start": "nodemon ./src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +12,6 @@
     "eslint": "^4.5.0"
   },
   "dependencies": {
-    "cross-env": "^5.0.5",
-    "debug": "^3.0.1",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
     "koa-router": "^7.2.1",
